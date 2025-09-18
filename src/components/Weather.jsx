@@ -148,7 +148,7 @@ function Weather() {
               </div>
             </div>
           </div>
-          <h1 className=" text-center text-white pb-10 pt-14">
+          <h1 className=" text-center text-white pb-10">
             Built and Design By{" "}
             <a className=" font-bold text-lg cursor-pointer">Sheeraz Ahmad</a>
           </h1>
