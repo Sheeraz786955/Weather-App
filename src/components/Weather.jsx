@@ -80,7 +80,7 @@ function Weather() {
   return (
     <>
       <div className="flex justify-center">
-        <div className="bg-gradient-to-r from-blue-700 to-blue-500 w-[500px] h-screen ">
+        <div className="bg-gradient-to-r from-blue-700 to-blue-500 w-[500px]">
           <div className="mx-5 my-10">
             <form action={action}>
               <div className="flex justify-center gap-2">
