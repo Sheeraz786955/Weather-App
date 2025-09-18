@@ -80,13 +80,13 @@ function Weather() {
   return (
     <>
       <div className="flex justify-center">
-        <div className="bg-gradient-to-r from-blue-700 to-blue-500 w-96 ">
+        <div className="bg-gradient-to-r from-blue-700 to-blue-500 w-[500px] h-screen ">
           <div className="mx-5 my-10">
             <form action={action}>
               <div className="flex justify-center gap-2">
                 <div>
                   <input
-                    className="bg-white mb-1 text-inherit w-56 rounded-3xl p-2.5"
+                    className="bg-white mb-1 text-inherit w-72 rounded-3xl p-2.5"
                     type="text"
                     name="city"
                     placeholder="Search City...."
@@ -127,7 +127,7 @@ function Weather() {
               </div>
             )}
 
-            <div className="grid grid-cols-2 gap-2 align-items-center mt-8">
+            <div className="grid grid-cols-2 gap-2 align-items-center mt-14">
               <div className=" flex gap-2 justify-center">
                 <div>
                   <i className="fa-solid fa-wind text-4xl text-white"></i>
@@ -148,7 +148,7 @@ function Weather() {
               </div>
             </div>
           </div>
-          <h1 className=" text-center text-white pb-10">
+          <h1 className=" text-center text-white pb-10 pt-14">
             Built and Design By{" "}
             <a className=" font-bold text-lg cursor-pointer">Sheeraz Ahmad</a>
           </h1>
