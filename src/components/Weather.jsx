@@ -54,6 +54,7 @@ function Weather() {
     });
     response = await response.json();
     let detailedData = response;
+    console.log(detailedData)
     if (detailedData.cod == "404") {
       alert(detailedData.message);
       setLoader(false);
@@ -61,12 +62,14 @@ function Weather() {
     }
     setWeatherData({
       temperature: Math.round(detailedData.main.temp),
+      feels_like: Math.round(detailedData.main.feels_like),
       humidity: detailedData.main.humidity,
       wind: detailedData.wind.speed,
       cityName: detailedData.name,
       // icon:icon
       icon: allIcons[detailedData.weather[0].icon],
       desce: detailedData.weather[0].description,
+      country:detailedData.sys.country,
     });
 
     setLoader(false);
@@ -86,7 +89,7 @@ function Weather() {
               <div className="flex justify-center gap-2">
                 <div>
                   <input
-                    className="bg-white mb-1 text-inherit w-72 rounded-3xl p-2.5"
+                    className="bg-white mb-1 text-inherit w-64 rounded-3xl p-2.5"
                     type="text"
                     name="city"
                     placeholder="Search City...."
@@ -103,6 +106,7 @@ function Weather() {
             <div className="w-40 m-auto my-5">
               <img className=" w-100" src={weatherData?.icon || clear} alt="" />
             </div>
+            
             {loader ? (
               <h1
                 type="button"
@@ -118,16 +122,27 @@ function Weather() {
                   <sup>o</sup>
                   <span className=" text-6xl">C</span>
                 </h1>
+                
                 <h1 className=" text-center text-white font-medium text-2xl my-2">
                   {desce1}
                 </h1>
                 <h1 className=" text-center text-white font-medium text-3xl my-5">
-                  {weatherData?.cityName}
+                  {weatherData?.cityName}, {weatherData?.country}
                 </h1>
               </div>
             )}
-
-            <div className="grid grid-cols-2 gap-2 align-items-center mt-14">
+             <div className=" flex gap-1 justify-center pt-5">
+                <div>
+                  <i className="fa-solid fa-temperature-three-quarters text-4xl text-white"></i>
+                </div>
+                <div className="text-white font-medium">
+                  <h1>{weatherData?.feels_like}<sup>o</sup>
+                  <span className=" font-medium">C</span></h1>
+                  <h1>Feels Like</h1>
+                </div>
+              </div>
+             
+            <div className="grid grid-cols-2 gap-2 align-items-center mt-5">
               <div className=" flex gap-2 justify-center">
                 <div>
                   <i className="fa-solid fa-wind text-4xl text-white"></i>
@@ -148,7 +163,7 @@ function Weather() {
               </div>
             </div>
           </div>
-          <h1 className=" text-center text-white pb-10">
+          <h1 className=" text-center text-white pb-5 mt-5">
             Built and Design By{" "}
             <a className=" font-bold text-lg cursor-pointer">Sheeraz Ahmad</a>
           </h1>
